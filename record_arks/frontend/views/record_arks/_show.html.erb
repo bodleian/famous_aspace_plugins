@@ -1,0 +1,41 @@
+<%
+  section_id = "record_arks" if section_id.blank?
+  jsonmodel = :record_ark if jsonmodel.blank?
+%>
+<section id="<%= section_id %>" class="subrecord-form-dummy">
+
+  <h3><%= I18n.t("plugins.record_ark._plural") %></h3>
+
+  <div class="subrecord-form-container">
+    <% record_arks.each_with_index do | record_ark, index | %>
+      <div class="subrecord-form-fields record-ark">
+        <div class="form-horizontal">
+          <div class="form-group">
+            <div class="control-label col-sm-2">Record ARK</div>
+            <div class="label-only col-sm-8">
+              <a href="<%= record_ark['ark'] %>" target="_blank">
+                <%= record_ark['ark'] %>
+              </a>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="control-label col-sm-2">Resolves to this record?</div>
+            <div class="label-only col-sm-8">
+              <% if !@archival_object.nil? %>
+                <%= RecordArkHelper.get_ark_info(record_ark['ark'], @archival_object, current_repo).html_safe %>
+              <% elsif !@resource.nil? %>
+                <%= RecordArkHelper.get_ark_info(record_ark['ark'], @resource, current_repo).html_safe %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <script type="text/javascript">
+      function confirmRepoSwitch() {
+          return confirm("To view the other record requires switching to another repository. Do you wish to continue?");
+      }
+  </script>
+
+</section>

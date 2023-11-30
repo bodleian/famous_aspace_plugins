@@ -1,0 +1,28 @@
+<%# This uses a JavaScript kludge to ensure the ARK field is never empty. This is necessary because the staff interface
+ignores blank subrecord forms, so the backend won't receive it, to know the user wants a new ARK to be generated. %>
+<% unless controller.action_name == 'defaults' %>
+  <% define_template "record_ark", jsonmodel_definition(:record_ark) do |form| %>
+    <div class="subrecord-form-fields">
+      <div class="row">
+        <%= form.label_and_textfield("ark", {:field_opts => {:value => form.obj["ark"].blank? ? " " : form.obj["ark"], :onchange => "if(this.value==''){this.value=' ';}"}}) %>
+        <% unless form.obj["ark"].blank? %>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Resolves to this record?</label>
+            <div class="col-sm-9 label-only">
+              <% if !@archival_object.nil? %>
+                <%= RecordArkHelper.get_ark_info(form.obj["ark"], @archival_object, current_repo).html_safe %>
+              <% elsif !@resource.nil? %>
+                <%= RecordArkHelper.get_ark_info(form.obj["ark"], @resource, current_repo).html_safe %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <script type="text/javascript">
+      function confirmRepoSwitch() {
+          return confirm("To view the other record requires switching to another repository. You will not be able to save changes to this record. Do you wish to continue?");
+      }
+    </script>
+  <% end %>
+<% end %>

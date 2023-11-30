@@ -1,0 +1,18 @@
+en:
+  plugins:
+    object_ark:
+      _plural: Object ARKs
+      _frontend:
+        action:
+          add: Add Object ARK
+    object_arks:
+      _plural: Object ARKs
+  object_ark:
+    ark: Object ARK
+    ark_tooltip: |
+      <p>An ARK representing the object being described in this record. All records at appropriate levels will 
+      automatically get one when saved.</p>
+      <p>Alternatively, if you know the object already has an ARK, copy-and-paste it here.</p>
+      <p>Leave it blank to generate a new ARK for the object.</p>
+  validation_errors:
+    object_ark_not_formatted_correctly: ARKs must be a full URLs or left blank to generate a new one.

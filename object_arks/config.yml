@@ -1,0 +1,9 @@
+depends_on_plugins:
+  - famous_common
+parents:
+  resource:
+    name: object_arks
+    cardinality: zero_to_many
+  archival_object:
+    name: object_arks
+    cardinality: zero_to_many

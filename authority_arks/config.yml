@@ -1,0 +1,25 @@
+depends_on_plugins:
+  - famous_common
+parents:
+  subject:
+    name: authority_arks
+    cardinality: zero_to_many
+  agent_person:
+    name: authority_arks
+    cardinality: zero_to_many
+  agent_family:
+    name: authority_arks
+    cardinality: zero_to_many
+  agent_corporate_entity:
+    name: authority_arks
+    cardinality: zero_to_many
+  agent_software:
+    name: authority_arks
+    cardinality: zero_to_many
+  agent:
+    name: authority_arks
+    cardinality: zero_to_many
+
+# TODO: The above is a workaround for bugs in core ArchivesSpace. After upgrading to a release containing
+# https://github.com/archivesspace/archivesspace/pull/3046 it would be possible to delete the agent_person,
+# agent_family, agent_corporate_entity and agent_software sections, leaving just the subject and agent ones

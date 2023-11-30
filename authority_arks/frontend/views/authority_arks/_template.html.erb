@@ -1,0 +1,13 @@
+<%# This uses a JavaScript kludge to ensure the ARK field is never empty. This is necessary because the staff interface
+ignores blank subrecord forms, so the backend won't receive it, to know the user wants a new ARK to be generated. %>
+<% unless controller.action_name == 'defaults' %>
+  <% if @agent.nil? or (!@agent.nil? and @agent.agent_type.to_s != 'agent_software') %>
+    <% define_template "authority_ark", jsonmodel_definition(:authority_ark) do |form| %>
+      <div class="subrecord-form-fields">
+        <div class="row">
+          <%= form.label_and_textfield("ark", {:field_opts => {:value => form.obj["ark"].blank? ? " " : form.obj["ark"], :onchange => "if(this.value==''){this.value=' ';}"}}) %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

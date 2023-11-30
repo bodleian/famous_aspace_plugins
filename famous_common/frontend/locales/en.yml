@@ -1,0 +1,17 @@
+en:
+  search:
+    multi:
+      arks: ARKs
+    resource:
+      arks: ARKs
+    archival_object:
+      arks: ARKs
+    agent:
+      arks: ARKs
+    subject:
+      arks: ARKs
+  advanced_search:
+    text:
+      arks_full_u_sstr: ARKs
+  validation_errors:
+    ark_mint_failure: Cannot mint new ARKs. Please try again later.

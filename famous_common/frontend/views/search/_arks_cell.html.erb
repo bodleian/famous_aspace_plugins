@@ -1,0 +1,5 @@
+<% if !record['arks_full_u_sstr'].nil? %>
+  <% record['arks_full_u_sstr'].sort.each do |ark| %>
+    <a href="<%= ark %>" target="_blank"><%= ark %></a><br/>
+  <% end %>
+<% end %>

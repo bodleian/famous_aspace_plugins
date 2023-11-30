@@ -1,0 +1,19 @@
+<%
+  section_id = "authority_arks" if section_id.blank?
+  jsonmodel = :authority_ark if jsonmodel.blank?
+%>
+<% if @agent.nil? or (!@agent.nil? and @agent.agent_type.to_s != 'agent_software') %>
+  <section id="<%= section_id %>" class="subrecord-form-dummy">
+
+    <h3><%= I18n.t("plugins.authority_ark._plural") %></h3>
+
+    <div class="subrecord-form-container">
+      <% authority_arks.each_with_index do | authority_ark, index | %>
+        <div class="subrecord-form-fields authority-ark">
+          <%= read_only_view(authority_ark) %>
+        </div>
+      <% end %>
+    </div>
+
+  </section>
+<% end %>

@@ -1,0 +1,21 @@
+en:
+  plugins:
+    record_ark:
+      _plural: Record ARKs
+      _frontend:
+        action:
+          add: Add Record ARK
+    record_arks:
+      _plural: Record ARKs
+  record_ark:
+    ark: Record ARK
+    ark_tooltip: |
+      <p>An ARK representing this record. All resources and archival objects will automatically get a new one when 
+      the record is saved.</p>
+      <p>Alternatively, if you are replacing an existing record, copy-and-paste the old record's ARK here.</p>
+      <p>Leave it blank to generate a new ARK for this record.</p>
+      <p>Only two records can have the same record ARK.</p>
+  validation_errors:
+    record_ark_already_used_twice: The same record ARK has been used twice already. You cannot create a third instance.
+    record_ark_not_formatted_correctly: ARKs must be a full URLs or left blank to generate a new one.
+    record_ark_same_as_authority_ark: The same ARK has been used for an agent or subject.

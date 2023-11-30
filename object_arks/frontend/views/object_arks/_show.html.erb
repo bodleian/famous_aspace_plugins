@@ -1,0 +1,17 @@
+<%
+  section_id = "object_arks" if section_id.blank?
+  jsonmodel = :object_ark if jsonmodel.blank?
+%>
+<section id="<%= section_id %>" class="subrecord-form-dummy">
+
+  <h3><%= I18n.t("plugins.object_ark._plural") %></h3>
+
+  <div class="subrecord-form-container">
+    <% object_arks.each_with_index do | object_ark, index | %>
+      <div class="subrecord-form-fields object-ark">
+        <%= read_only_view(object_ark) %>
+      </div>
+    <% end %>
+  </div>
+
+</section>

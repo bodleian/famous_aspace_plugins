@@ -1,0 +1,20 @@
+en:
+  plugins:
+    authority_ark:
+      _plural: Authority ARKs
+      _frontend:
+        action:
+          add: Add Authority ARK
+    authority_arks:
+      _plural: Authority ARKs
+  authority_ark:
+    ark: Authority ARK
+    ark_tooltip: |
+      <p>An ARK representing this authority record. All subjects and agents will automatically get a new one when 
+      the record is saved.</p>
+      <p>Leave it blank to generate a new ARK for this authority.</p>
+      <p>No two authority records can have the same authority ARK.</p>
+  validation_errors:
+    authority_ark_already_used: The same authority ARK has been used already. No two records can have the same authority ARK.
+    authority_ark_not_formatted_correctly: ARKs must be a full URLs or left blank to generate a new one.
+    authority_ark_same_as_record_ark: The same ARK has been used for a resource or archival object.
